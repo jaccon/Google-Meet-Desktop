@@ -1,0 +1,26 @@
+{
+  "name": "google-meet-desktop",
+  "version": "1.0.0",
+  "description": "Google Meet Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.googlemeet.desktop",
+    "productName": "Google Meet Desktop",
+    "mac": {
+      "icon": "assets/icon.icns",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": ["nsis", "zip"]
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^23.0.0"
+  }
+}
