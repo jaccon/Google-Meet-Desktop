@@ -14,6 +14,20 @@ function createWindow() {
 
     mainWindow.loadURL('https://mail.google.com/chat/');
     mainWindow.setTitle('Google Meet Desktop developed by @Jaccon');
+
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.executeJavaScript(`
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                .then(stream => {
+                    console.log('Microphone and Camera access granted');
+                    stream.getTracks().forEach(track => track.stop());
+                })
+                .catch(error => {
+                    console.error('Microphone and/or Camera access denied:', error);
+                    alert('Por favor, habilite o acesso à câmera e ao microfone nas configurações do sistema.');
+                });
+        `);
+    });
 }
 
 app.whenReady().then(createWindow);

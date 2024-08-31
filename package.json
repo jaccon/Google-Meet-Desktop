@@ -12,7 +12,11 @@
     "productName": "Google Meet Desktop",
     "mac": {
       "icon": "assets/icon.icns",
-      "target": ["dmg", "zip"]
+      "target": ["dmg", "zip"],
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "O Google Meet Desktop requer acesso ao microfone para chamadas de áudio.",
+        "NSCameraUsageDescription": "O Google Meet Desktop requer acesso à câmera para videochamadas."
+      }
     },
     "win": {
       "icon": "assets/icon.ico",
